@@ -47,7 +47,7 @@ public class PatientService
 		patientConditionRepository.save(condition);//病情
 		
 		int  pcid=condition.getId();
-		patient.setPcid(pcid);
+		
 		
 		patientRepository.save(patient);//病人
 		
