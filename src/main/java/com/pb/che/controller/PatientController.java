@@ -1,6 +1,7 @@
 package com.pb.che.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,6 +33,26 @@ public class PatientController
 		return result;
 	}
 	
+	
+	@PostMapping("/getcue/{pcid}")
+
+	public ResultObject getcue(@PathVariable String pcid){
+		
+		ResultObject	result=patientService.getcue(pcid);
+		return result;
+		
+	}
+	
+	@PostMapping("/update")
+	public ResultObject update(String data){
+		
+		ResultObject result = new ResultObject();
+		 result=patientService.update(data);
+		return result;
+		
+	}
+	
+
 	
 
 }

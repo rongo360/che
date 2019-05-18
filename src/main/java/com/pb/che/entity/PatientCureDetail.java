@@ -1,14 +1,19 @@
 package com.pb.che.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import lombok.Data;
 
 @Data
+@Entity
+@Table(name = "t_patientcuredetail")
 public class PatientCureDetail extends BaseEntity
 {
 
-	
-	
-	
+
+	private static final long serialVersionUID = 1L;
+
 	private  String idcard;//身份证
 	
 	private  String roletype;// 拥有这个角色的人才能操作这条数据

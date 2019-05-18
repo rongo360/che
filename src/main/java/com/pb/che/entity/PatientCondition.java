@@ -14,6 +14,8 @@ public class PatientCondition extends BaseEntity
 {
 
 
+	
+	
 	private String idcard;// 身份证
 
 	private String adderss;//地址

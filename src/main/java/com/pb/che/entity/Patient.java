@@ -15,14 +15,30 @@ import lombok.Data;
 public class Patient extends BaseEntity
 {
 
+	private  String name;
+	
+	private  int gender;//
+	
+	private  int age;
+
+	private  String phone;//电话
+	
 	private String idcard;// 身份证
 
+	private String onsetadderss;//发病地址
+
 	private String adderss;//地址
+	
+	private Date onsettime;// 发病时间
 
-	private Date onsetTime;// 发病时间
-
-	private String reachtype;// 到达方式
-
+	private String calltype;// 呼救方式
+	
+	private Date calltime;// 呼救时间
+	
+	private String reachtype;// 来院方式
+	
+	private String reachtime;// 来院时间
+	
 	private Date startitme;// 住院时间
 	
 	private Date endtitme;// 出院院时间
@@ -37,116 +53,7 @@ public class Patient extends BaseEntity
 	
 	private String chiefname;//医生名字
 
-	public String getIdcard()
-	{
-		return idcard;
-	}
 
-	public void setIdcard(String idcard)
-	{
-		this.idcard = idcard;
-	}
-
-	public String getAdderss()
-	{
-		return adderss;
-	}
-
-	public void setAdderss(String adderss)
-	{
-		this.adderss = adderss;
-	}
-
-	public Date getOnsetTime()
-	{
-		return onsetTime;
-	}
-
-	public void setOnsetTime(Date onsetTime)
-	{
-		this.onsetTime = onsetTime;
-	}
-
-	public String getReachtype()
-	{
-		return reachtype;
-	}
-
-	public void setReachtype(String reachtype)
-	{
-		this.reachtype = reachtype;
-	}
-
-	public Date getStartitme()
-	{
-		return startitme;
-	}
-
-	public void setStartitme(Date startitme)
-	{
-		this.startitme = startitme;
-	}
-
-	public Date getEndtitme()
-	{
-		return endtitme;
-	}
-
-	public void setEndtitme(Date endtitme)
-	{
-		this.endtitme = endtitme;
-	}
-
-	public String getDocure()
-	{
-		return docure;
-	}
-
-	public void setDocure(String docure)
-	{
-		this.docure = docure;
-	}
-
-	public int getPcid()
-	{
-		return pcid;
-	}
-
-	public void setPcid(int pcid)
-	{
-		this.pcid = pcid;
-	}
-
-	public int getTimes()
-	{
-		return times;
-	}
-
-	public void setTimes(int times)
-	{
-		this.times = times;
-	}
-
-	public int getChief()
-	{
-		return chief;
-	}
-
-	public void setChief(int chief)
-	{
-		this.chief = chief;
-	}
-
-	public String getChiefname()
-	{
-		return chiefname;
-	}
-
-	public void setChiefname(String chiefname)
-	{
-		this.chiefname = chiefname;
-	}
-	
 	
 
 }

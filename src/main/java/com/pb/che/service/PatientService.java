@@ -11,9 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.pb.che.constant.RoleTypeConstant;
+import com.pb.che.context.CurrentUserContext;
+import com.pb.che.context.UserDomain;
 import com.pb.che.entity.Patient;
 import com.pb.che.entity.PatientCondition;
 import com.pb.che.entity.PatientCureDetail;
+import com.pb.che.entity.User;
 import com.pb.che.repository.PatientConditionRepository;
 import com.pb.che.repository.PatientCureDetailRepository;
 import com.pb.che.repository.PatientRepository;
@@ -61,5 +65,51 @@ public class PatientService
 		return resultObject;
 		
 	}
+	
+	
+	public ResultObject getcue(String pcid){
+		
+		ResultObject resultObject=new ResultObject();
+		
+		UserDomain userDomain= CurrentUserContext.get();
+		
+		List<PatientCureDetail> patientCureDetails=patientCureDetailRepository.
+				getListsByPcid(pcid, userDomain.getHoscode());
+		
+		resultObject.setData(patientCureDetails);
+		
+		
+		
+		return resultObject;
+	}
+	
+	
+	public ResultObject update(String data){
+		ResultObject resultObject=new ResultObject();
+		
+		UserDomain userDomain=CurrentUserContext.get();
+		 
+		String roleType=userDomain.getRoletype();
+		
+		if(RoleTypeConstant.ROLETYPE_FIRSTAD.equals(roleType)){//急救填报员
+			
+		}
+		
+		if(RoleTypeConstant.ROLETYPE_CHESTPAIN.equals(roleType)){// 胸痛填报员
+			
+		}
+		
+		if (RoleTypeConstant.ROLETYPE_CHESTPAIN.equals(roleType))
+		{
+			
+		}
+		
+		
+		
+		return resultObject;
+		
+		
+	}
+	
 	
 }
