@@ -5,6 +5,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.pb.che.constant.RoleTypeConstant;
 import com.pb.che.context.CurrentUserContext;
 import com.pb.che.context.UserDomain;
@@ -100,4 +101,29 @@ public class UserService
 
 	}
 
+	public ResultObject updatePassword(String data){
+		
+		ResultObject resultObject=new ResultObject();
+		JSONObject jsonObject=JSONObject.parseObject(data);
+		String account=jsonObject.getString("account");
+		String password=jsonObject.getString("password");
+		String password2=jsonObject.getString("newpassword");
+		if(password2.equals(password)){//
+			 resultObject.setSuccess(false);
+			 resultObject.setMessage("两次密码不可以相同");
+			 return resultObject;
+		}
+		
+		UserDomain userDomain=CurrentUserContext.get();
+		User user=userRepository.getByAccount(account,userDomain.getHoscode());
+		if(!user.getPassword().equals(password)){
+			 resultObject.setSuccess(false);
+			 resultObject.setMessage("密码错误");
+			 return resultObject;
+		}
+		
+		userRepository.updatePassword(password2, account, userDomain.getHoscode());
+		return resultObject;
+	}
+	
 }

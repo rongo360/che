@@ -62,7 +62,7 @@ public class UserController
 	}
 
 
-	@GetMapping("/update")
+	@PostMapping("/update")
 	public ResultObject update(String data)
 	{
 		ResultObject result = new ResultObject();
@@ -70,6 +70,15 @@ public class UserController
 		userService.save(user);
 		return result;
 	}
+	
+	@PostMapping("/update2")
+	public ResultObject updatePassword(String data)
+	{
+		ResultObject result = new ResultObject();
+        userService.updatePassword(data);
+		return result;
+	}
+	
 	
 	
 	
