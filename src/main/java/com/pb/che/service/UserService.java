@@ -126,4 +126,17 @@ public class UserService
 		return resultObject;
 	}
 	
+	
+	public ResultObject resetPassword(String data){
+		
+		ResultObject resultObject=new ResultObject();
+		
+		
+		
+		
+		
+		
+		return resultObject;
+	}
+	
 }

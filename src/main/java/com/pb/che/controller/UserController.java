@@ -71,7 +71,8 @@ public class UserController
 		return result;
 	}
 	
-	@PostMapping("/update2")
+	
+	@PostMapping("/updatePassword")
 	public ResultObject updatePassword(String data)
 	{
 		ResultObject result = new ResultObject();
@@ -79,6 +80,14 @@ public class UserController
 		return result;
 	}
 	
+	@PostMapping("/resetPassword")
+	@Authority(roleType={RoleTypeConstant.ROLETYPE_SYSTEM,RoleTypeConstant.ROLETYPE_ADMIN})
+	public ResultObject resetPassword(String data)
+	{
+		ResultObject result = new ResultObject();
+        userService.resetPassword(data);
+		return result;
+	}
 	
 	
 	

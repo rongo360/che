@@ -11,15 +11,15 @@ import lombok.Data;
 public class Patient extends BaseEntity
 {
 
-	private String idCard;// 身份证
+	private String idcard;// 身份证
 
 	private String adderss;
 
 	private Date onsetTime;// 发病时间
 
-	private String reachType;// 到达方式
+	private String reachtype;// 到达方式
 
-	private String reachTime;// 到达时间
+	private String reachtime;// 到达时间
 	
 	
 
