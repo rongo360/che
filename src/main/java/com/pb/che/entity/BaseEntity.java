@@ -21,20 +21,18 @@ public class BaseEntity implements Serializable
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO) 
-	private Integer id;//主键
+	private int id;//主键
 	private int flag = 1;
-	private Integer creator;// 创建者
+	private int creator;// 创建者
 	private Date createtime = new Date();// 创建时间
-	private Integer updator;// 更新者
+	private int updator;// 更新者
 	private Date updatetime = new Date();// 更新时间
 	private String hoscode;// 医院编码
-	
-	
-	public Integer getId()
+	public int getId()
 	{
 		return id;
 	}
-	public void setId(Integer id)
+	public void setId(int id)
 	{
 		this.id = id;
 	}
@@ -46,11 +44,11 @@ public class BaseEntity implements Serializable
 	{
 		this.flag = flag;
 	}
-	public Integer getCreator()
+	public int getCreator()
 	{
 		return creator;
 	}
-	public void setCreator(Integer creator)
+	public void setCreator(int creator)
 	{
 		this.creator = creator;
 	}
@@ -62,11 +60,11 @@ public class BaseEntity implements Serializable
 	{
 		this.createtime = createtime;
 	}
-	public Integer getUpdator()
+	public int getUpdator()
 	{
 		return updator;
 	}
-	public void setUpdator(Integer updator)
+	public void setUpdator(int updator)
 	{
 		this.updator = updator;
 	}
@@ -86,5 +84,7 @@ public class BaseEntity implements Serializable
 	{
 		this.hoscode = hoscode;
 	}
+	
+	
 	
 }

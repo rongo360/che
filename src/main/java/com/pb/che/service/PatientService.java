@@ -1,5 +1,10 @@
 package com.pb.che.service;
 
+
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +18,8 @@ import com.pb.che.repository.PatientConditionRepository;
 import com.pb.che.repository.PatientCureDetailRepository;
 import com.pb.che.repository.PatientRepository;
 import com.pb.che.utils.ResultObject;
+
+
 
 @Service
 public class PatientService
@@ -31,15 +38,26 @@ public class PatientService
 		
 		Patient patient=JSONObject.parseObject(data, Patient.class);
 	
-		patientRepository.save(patient);
+        PatientCondition condition=new PatientCondition();
 		
-		PatientCondition condition=new PatientCondition();
+		patientConditionRepository.save(condition);//病情
 		
-		patientConditionRepository.save(condition);
+		int  pcid=condition.getId();
+		patient.setPcid(pcid);
 		
-		PatientCureDetail cureDetail=new PatientCureDetail();
+		patientRepository.save(patient);//病人
 		
-		patientCureDetailRepository.save(cureDetail);
+		
+		
+		List<PatientCureDetail> cureDetails=new ArrayList<PatientCureDetail>();
+		
+		for (PatientCureDetail cureDetail : cureDetails)
+		{
+			cureDetail.setPcid(pcid);
+		}
+		
+		
+		patientCureDetailRepository.saveAll(cureDetails);
 		return resultObject;
 		
 	}

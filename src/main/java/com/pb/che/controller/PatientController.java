@@ -27,7 +27,8 @@ public class PatientController
 	public ResultObject save(String data)
 	{
 		ResultObject result = new ResultObject();
-		;
+		
+		patientService.save(data);
 		return result;
 	}
 	

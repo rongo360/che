@@ -2,18 +2,22 @@ package com.pb.che.entity;
 
 import java.util.Date;
 
-
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import lombok.Data;
 
 
+
 @Data
+@Entity
+@Table(name="t_patient")
 public class Patient extends BaseEntity
 {
 
 	private String idcard;// 身份证
 
-	private String adderss;
+	private String adderss;//地址
 
 	private Date onsetTime;// 发病时间
 
@@ -21,11 +25,17 @@ public class Patient extends BaseEntity
 
 	private Date startitme;// 住院时间
 	
-	private Date endtitme;// 住院时间
+	private Date endtitme;// 出院院时间
 	
-	private Integer pcid;//最新的病情
+	private String  docure="1";
 	
-	private Integer pcdId;//最新的治疗方案；
+	private int pcid;//最新的病情
+	
+	private int  times;//次数
+
+	private int  chief;//组织医生
+	
+	private String chiefname;//医生名字
 
 	public String getIdcard()
 	{
@@ -87,25 +97,56 @@ public class Patient extends BaseEntity
 		this.endtitme = endtitme;
 	}
 
-	public Integer getPcid()
+	public String getDocure()
+	{
+		return docure;
+	}
+
+	public void setDocure(String docure)
+	{
+		this.docure = docure;
+	}
+
+	public int getPcid()
 	{
 		return pcid;
 	}
 
-	public void setPcid(Integer pcid)
+	public void setPcid(int pcid)
 	{
 		this.pcid = pcid;
 	}
 
-	public Integer getPcdId()
+	public int getTimes()
 	{
-		return pcdId;
+		return times;
 	}
 
-	public void setPcdId(Integer pcdId)
+	public void setTimes(int times)
 	{
-		this.pcdId = pcdId;
+		this.times = times;
 	}
+
+	public int getChief()
+	{
+		return chief;
+	}
+
+	public void setChief(int chief)
+	{
+		this.chief = chief;
+	}
+
+	public String getChiefname()
+	{
+		return chiefname;
+	}
+
+	public void setChiefname(String chiefname)
+	{
+		this.chiefname = chiefname;
+	}
+	
 	
 
 }
