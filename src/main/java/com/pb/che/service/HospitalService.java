@@ -20,14 +20,16 @@ public class HospitalService
 	public ResultObject get(Integer id){
 		ResultObject resultObject=new ResultObject();
 		UserDomain userDomain=CurrentUserContext.get();
-/*		if(!userDomain.getRoletype().equals(RoleTypeConstant.ROLETYPE_SYSTEM)){
+		if(!userDomain.getRoletype().equals(RoleTypeConstant.ROLETYPE_SYSTEM)){
 			 resultObject.setSuccess(false);
 			 resultObject.setMessage("");
 			 return resultObject;
 		}
-		*/
+		
 		Hospital hospital=hospitalRepository.getOne(id);
 		resultObject.setData(hospital);
+		
+		
 		return resultObject;
 		
 	}

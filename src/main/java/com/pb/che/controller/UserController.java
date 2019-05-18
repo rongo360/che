@@ -89,7 +89,11 @@ public class UserController
 		return result;
 	}
 	
-	
-	
+	@PostMapping("/list")
+	public ResultObject getListByPage(String data){
+		
+		ResultObject resultObject=userService.getListByPage(data);
+		return resultObject;
+	}
 
 }
